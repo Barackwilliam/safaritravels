@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: safaritravels
+    env: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn safaritravels.wsgi:application"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: DATABASE_URL
+        sync: false
+      - key: DB_SSL_REQUIRE
+        value: "True"
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"
+      - key: PYTHON_VERSION
+        value: "3.12.0"

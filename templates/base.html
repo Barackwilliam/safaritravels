@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Safari Travels — Tanzania Safari & Adventure Tours{% endblock %}</title>
+<meta name="description" content="{% block meta_description %}Safari Travels — unforgettable Tanzania safari adventures, Kilimanjaro trekking, cultural experiences and beach holidays. Based in Arusha.{% endblock %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-item">📍 {{ SITE_LOCATION }}</span>
+    <span class="topbar-item topbar-phone">📞 {{ SITE_PHONE_PRIMARY }}</span>
+    <span class="topbar-item topbar-social">
+      <a href="{{ SITE_INSTAGRAM }}" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      <a href="{{ SITE_FACEBOOK }}" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+    </span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="{% url 'tours:home' %}" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="34" height="34">
+          <path d="M4 34 Q14 10 24 22 Q34 10 44 34" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="24" cy="12" r="4" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">Safari Travels</span>
+        <span class="brand-sub">Tanzania Adventures</span>
+      </span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="site-nav">
+      <a href="{% url 'tours:home' %}">Home</a>
+      <a href="{% url 'tours:package_list' %}">Packages</a>
+      <a href="{% url 'tours:destination_list' %}">Destinations</a>
+      <a href="{% url 'tours:day_trip_list' %}">Day Trips</a>
+      <a href="{% url 'tours:about' %}">About</a>
+      <a href="{% url 'tours:contact' %}" class="nav-cta">Plan My Safari</a>
+    </nav>
+  </div>
+</header>
+<div class="pattern-band" aria-hidden="true"></div>
+
+<main>
+{% if messages %}
+  <div class="messages-wrap">
+    {% for message in messages %}
+      <div class="site-message {% if message.tags %}site-message--{{ message.tags }}{% endif %}">{{ message }}</div>
+    {% endfor %}
+  </div>
+{% endif %}
+{% block content %}{% endblock %}
+</main>
+
+<div class="pattern-band pattern-band--thick" aria-hidden="true"></div>
+<footer class="site-footer pattern-wash">
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <span class="brand-name footer-brand-name">Safari Travels</span>
+      <p>Showcasing the beauty and diversity of Tanzania through unforgettable safari adventures, mountain trekking, cultural experiences and beach holidays.</p>
+      <div class="footer-social">
+        <a href="{{ SITE_INSTAGRAM }}" target="_blank" rel="noopener">Instagram</a>
+        <a href="{{ SITE_FACEBOOK }}" target="_blank" rel="noopener">Facebook</a>
+        <a href="{{ SITE_THREADS }}" target="_blank" rel="noopener">Threads</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="{% url 'tours:package_list' %}">Tour Packages</a>
+      <a href="{% url 'tours:destination_list' %}">Destinations</a>
+      <a href="{% url 'tours:day_trip_list' %}">Day Trips</a>
+      <a href="{% url 'tours:about' %}">About Us</a>
+    </div>
+    <div class="footer-col">
+      <h4>Head Office</h4>
+      <p>{{ SITE_LOCATION }}</p>
+      <p>{{ SITE_PHONE_PRIMARY }}<br>{{ SITE_PHONE_SECONDARY }}</p>
+      <p><a href="mailto:{{ SITE_EMAIL }}">{{ SITE_EMAIL }}</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>Start Planning</h4>
+      <p>Tell us your travel dates and we'll build a custom itinerary.</p>
+      <a href="{% url 'tours:contact' %}" class="btn btn-gold btn-small">Get In Touch</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; {% now "Y" %} Safari Travels. All rights reserved.</span>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/{{ SITE_WHATSAPP }}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" width="26" height="26" fill="currentColor"><path d="M16.001 3C9.376 3 4 8.373 4 15c0 2.34.687 4.523 1.87 6.36L4 29l7.84-1.82A11.93 11.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16.001 3zm0 21.9c-1.94 0-3.75-.56-5.27-1.53l-.378-.234-4.653 1.08 1.108-4.53-.246-.39A9.86 9.86 0 0 1 5.1 15c0-6.02 4.88-10.9 10.9-10.9 6.02 0 10.9 4.88 10.9 10.9s-4.88 10.9-10.9 10.9zm5.98-8.16c-.328-.164-1.94-.957-2.24-1.066-.3-.11-.52-.164-.738.164-.219.328-.848 1.066-1.04 1.285-.191.219-.383.246-.71.082-.328-.164-1.386-.51-2.64-1.63-.976-.87-1.635-1.945-1.827-2.273-.191-.328-.02-.505.144-.668.148-.148.328-.383.492-.575.164-.191.219-.328.328-.547.11-.219.055-.41-.027-.574-.082-.164-.738-1.778-1.012-2.434-.266-.64-.535-.554-.738-.564l-.629-.011c-.219 0-.574.082-.875.41-.3.328-1.148 1.121-1.148 2.734s1.175 3.172 1.339 3.39c.164.219 2.313 3.53 5.605 4.95.783.338 1.394.54 1.87.691.786.25 1.5.215 2.066.13.63-.094 1.94-.793 2.213-1.559.273-.766.273-1.422.191-1.559-.082-.137-.3-.219-.629-.383z"/></svg>
+</a>
+
+<script src="{% static 'js/main.js' %}"></script>
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>

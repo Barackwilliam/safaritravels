@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}{{ package.title }} — Safari Travels{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding-bottom:50px;">
+  <div class="sun-glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">{{ package.get_category_display }} · {{ package.duration_days }} Days</span>
+    <h1 style="font-size:clamp(2rem,4.5vw,3.2rem);">{{ package.title }}</h1>
+    <p class="hero-lede">{{ package.summary }}</p>
+    <div class="hero-actions">
+      <a href="{% url 'tours:contact' %}?package={{ package.title|urlencode }}" class="btn btn-sunset">Book This Package — From ${{ package.price_from_usd|floatformat:0 }}</a>
+      <a href="https://wa.me/{{ SITE_WHATSAPP }}?text=Hi%2C%20I%27m%20interested%20in%20{{ package.title|urlencode }}" target="_blank" rel="noopener" class="btn btn-outline">Ask on WhatsApp</a>
+    </div>
+  </div>
+</section>
+<div class="pattern-band" aria-hidden="true"></div>
+
+<section class="section">
+  <div class="container" style="max-width:900px;">
+    {% if package.get_image %}
+    <div class="ornament-corner" style="margin-bottom:40px;"><img src="{{ package.get_image }}" alt="{{ package.title }}" style="border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); aspect-ratio:16/9; object-fit:cover; display:block;"></div>
+    {% endif %}
+
+    {% if package.description %}
+    <h2>Overview</h2>
+    <p style="font-size:1.05rem; color:#5b5044;">{{ package.description|linebreaks }}</p>
+    {% endif %}
+
+    {% if package.highlight_list %}
+    <h2 class="mt-lg">Highlights</h2>
+    <ul style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+      {% for h in package.highlight_list %}
+      <li style="display:flex; gap:10px; align-items:flex-start;">
+        <span style="color:var(--sunset); font-weight:700;">✓</span> {{ h }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if package.itinerary_days.all %}
+    <h2 class="mt-lg">Day-by-Day Itinerary</h2>
+    <div class="journey">
+      {% for day in package.itinerary_days.all %}
+      <div class="journey-day">
+        <div class="journey-num">{{ day.day_number }}</div>
+        <div class="journey-content">
+          <h4>{{ day.title }}</h4>
+          <p>{{ day.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if package.destinations.all %}
+    <h2 class="mt-lg">Destinations Covered</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+      {% for d in package.destinations.all %}
+      <span class="filter-pill" style="cursor:default;">{{ d.name }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% if related %}
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">You may also like</span>
+      <h2>Similar Packages</h2>
+    </div>
+    <div class="pkg-grid reveal-stagger">
+      {% for p in related %}
+      <a href="{{ p.get_absolute_url }}" class="pkg-card">
+        <div class="pkg-card-img">
+          {% if p.get_image %}<img src="{{ p.get_image }}" alt="{{ p.title }}" loading="lazy">
+          {% else %}<img src="https://images.unsplash.com/photo-1547970810-dc1eac37d174?w=900&q=70" alt="{{ p.title }}" loading="lazy">{% endif %}
+          <span class="pkg-card-badge">{{ p.duration_days }} Days</span>
+        </div>
+        <div class="pkg-card-body">
+          <span class="pkg-card-cat">{{ p.get_category_display }}</span>
+          <h3 class="pkg-card-title">{{ p.title }}</h3>
+          <p class="pkg-card-summary">{{ p.summary }}</p>
+          <div class="pkg-card-footer">
+            <div><span class="pkg-price-label">From</span><div class="pkg-price">${{ p.price_from_usd|floatformat:0 }}</div></div>
+            <span class="btn btn-sunset btn-small">View Details</span>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% endblock %}

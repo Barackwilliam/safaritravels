@@ -1,0 +1,272 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero">
+  <div class="sun-glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Arusha, Tanzania · Est. Local Safari Experts</span>
+    <h1>Chase the <em>golden hour</em> across Tanzania's wild heart</h1>
+    <p class="hero-lede">
+      Safari Travels designs unforgettable journeys through the Serengeti's plains, Kilimanjaro's slopes,
+      and Zanzibar's shores — guided by local experts who know the land by heart.
+    </p>
+    <div class="hero-actions">
+      <a href="{% url 'tours:package_list' %}" class="btn btn-sunset">Browse Safari Packages</a>
+      <a href="{% url 'tours:contact' %}" class="btn btn-outline">Plan a Custom Trip</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="hero-stat-num">9+</span>
+        <span class="hero-stat-label">Parks &amp; Destinations</span>
+      </div>
+      <div>
+        <span class="hero-stat-num">5</span>
+        <span class="hero-stat-label">Signature Safari Packages</span>
+      </div>
+      <div>
+        <span class="hero-stat-num">100%</span>
+        <span class="hero-stat-label">Tanzania-Based Guides</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-birds" aria-hidden="true">
+    <svg class="bird-1" viewBox="0 0 30 14" width="26" height="12"><path d="M0 8 Q7 0 15 7 Q23 0 30 8" fill="none" stroke="#F3D8A6" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <svg class="bird-2" viewBox="0 0 30 14" width="20" height="9"><path d="M0 8 Q7 0 15 7 Q23 0 30 8" fill="none" stroke="#F3D8A6" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <svg class="bird-3" viewBox="0 0 30 14" width="22" height="10"><path d="M0 8 Q7 0 15 7 Q23 0 30 8" fill="none" stroke="#F3D8A6" stroke-width="1.6" stroke-linecap="round"/></svg>
+  </div>
+  <div class="hero-horizon" aria-hidden="true">
+    <svg viewBox="0 0 1200 130" preserveAspectRatio="none">
+      <path d="M0 90 L60 82 L110 92 L170 70 L220 88 L280 60 L320 90 L400 78 L470 92 L540 66 L610 90 L680 76 L760 92 L840 70 L920 88 L1000 74 L1080 90 L1150 80 L1200 88 L1200 130 L0 130 Z" fill="#0D1220" opacity="0.9"/>
+      <g fill="#0D1220" opacity="0.95">
+        <rect x="150" y="40" width="4" height="45"/>
+        <path d="M152 40 Q120 45 100 60 Q125 55 152 55 Z"/>
+        <path d="M152 45 Q185 48 205 65 Q180 58 152 60 Z"/>
+        <rect x="980" y="30" width="4" height="55"/>
+        <path d="M982 32 Q945 36 922 55 Q950 48 982 50 Z"/>
+        <path d="M982 38 Q1020 40 1042 58 Q1012 52 982 54 Z"/>
+      </g>
+    </svg>
+    <div class="horizon-wildlife">
+      <svg class="walker-elephant" viewBox="0 0 60 34" fill="#0D1220"><path d="M4 30 L4 20 Q4 10 14 8 Q10 4 14 2 Q18 1 20 5 Q26 3 32 6 Q40 4 44 12 Q52 12 52 20 L52 30 L47 30 L47 24 L44 30 L38 30 L38 24 L35 30 L18 30 L18 23 L14 30 L8 30 L8 22 L4 30 Z"/></svg>
+      <svg class="walker-giraffe" viewBox="0 0 30 46" fill="#0D1220"><path d="M14 2 L18 2 L18 8 Q22 10 22 16 L20 34 L24 46 L20 46 L17 36 L15 46 L11 46 L13 32 L10 16 Q10 10 14 8 Z"/></svg>
+      <svg class="walker-gazelle" viewBox="0 0 30 26" fill="#0D1220"><path d="M2 8 L8 6 L10 2 L11 6 L16 8 Q24 8 26 16 L26 24 L23 24 L22 18 L18 24 L15 24 L17 17 L9 17 L11 24 L7 24 L6 16 L2 12 Z"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight pattern-wash">
+  <div class="container">
+    <div class="section-head reveal cultural">
+      <span class="eyebrow">Simple &amp; personal</span>
+      <h2>How Your Safari Works</h2>
+      <p>Four steps from a first message to standing in the Serengeti at sunrise.</p>
+    </div>
+    <div class="process-steps reveal-stagger">
+      <div class="process-step">
+        <h4>Tell Us Your Dream</h4>
+        <p>Share your dates, group size, and the experiences you're chasing — safari, summit, or shoreline.</p>
+      </div>
+      <div class="process-step">
+        <h4>Get a Custom Itinerary</h4>
+        <p>Our Arusha-based planners build a day-by-day route matched to your budget within 24 hours.</p>
+      </div>
+      <div class="process-step">
+        <h4>Confirm &amp; Prepare</h4>
+        <p>Lock your dates, and we brief you on packing, permits, and what each day will feel like.</p>
+      </div>
+      <div class="process-step">
+        <h4>Travel With a Local Guide</h4>
+        <p>A guide who grew up near the parks leads every kilometre, from airport pickup to your last sunset.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Where to go</span>
+      <h2>Popular Destinations</h2>
+      <p>From the endless plains of the Serengeti to the white sands of Zanzibar — nine iconic Tanzanian destinations, ready to explore.</p>
+    </div>
+    <div class="dest-grid reveal-stagger">
+      {% for d in destinations %}
+      <a href="{{ d.get_absolute_url }}" class="dest-card">
+        {% if d.get_image %}<img src="{{ d.get_image }}" alt="{{ d.name }}" loading="lazy">
+        {% else %}<img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=70" alt="{{ d.name }}" loading="lazy">{% endif %}
+        <span class="dest-card-overlay"><span class="dest-card-title">{{ d.name }}</span></span>
+      </a>
+      {% empty %}
+        {% for name, img in default_destinations %}
+        <a href="{% url 'tours:destination_list' %}" class="dest-card">
+          <img src="{{ img }}" alt="{{ name }}" loading="lazy">
+          <span class="dest-card-overlay"><span class="dest-card-title">{{ name }}</span></span>
+        </a>
+        {% endfor %}
+      {% endfor %}
+    </div>
+    <div class="text-center mt-lg">
+      <a href="{% url 'tours:destination_list' %}" class="btn btn-dark">View All Destinations</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Tour packages</span>
+      <h2>Signature Safari Journeys</h2>
+      <p>Carefully paced itineraries covering the Northern Circuit, Kilimanjaro treks, and island escapes.</p>
+    </div>
+    <div class="pkg-grid reveal-stagger">
+      {% for p in packages %}
+      <a href="{{ p.get_absolute_url }}" class="pkg-card">
+        <div class="pkg-card-img">
+          {% if p.get_image %}<img src="{{ p.get_image }}" alt="{{ p.title }}" loading="lazy">
+          {% else %}<img src="https://images.unsplash.com/photo-1547970810-dc1eac37d174?w=900&q=70" alt="{{ p.title }}" loading="lazy">{% endif %}
+          <span class="pkg-card-badge">{{ p.duration_days }} Days</span>
+        </div>
+        <div class="pkg-card-body">
+          <span class="pkg-card-cat">{{ p.get_category_display }}</span>
+          <h3 class="pkg-card-title">{{ p.title }}</h3>
+          <p class="pkg-card-summary">{{ p.summary }}</p>
+          <div class="pkg-card-footer">
+            <div>
+              <span class="pkg-price-label">From</span>
+              <div class="pkg-price">${{ p.price_from_usd|floatformat:0 }}</div>
+            </div>
+            <span class="btn btn-sunset btn-small">View Details</span>
+          </div>
+        </div>
+      </a>
+      {% empty %}
+      <p>Packages are being added — check back soon, or contact us directly for current offers.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Short on time?</span>
+      <h2>Day Trips Near You</h2>
+      <p>Perfect for a single free day — waterfalls, hot springs, national parks and Stone Town, all within easy reach.</p>
+    </div>
+    <div class="trip-row reveal-stagger">
+      {% for t in day_trips %}
+      <a href="{% url 'tours:day_trip_list' %}" class="trip-card">
+        {% if t.get_image %}<img src="{{ t.get_image }}" alt="{{ t.title }}" loading="lazy">
+        {% else %}<img src="https://images.unsplash.com/photo-1516617442634-75371039cb3a?w=500&q=70" alt="{{ t.title }}" loading="lazy">{% endif %}
+        <div>
+          <h3>{{ t.title }}</h3>
+          <p>{{ t.summary|default:"A perfect day excursion from Arusha or Moshi." }}</p>
+        </div>
+        {% if t.price_from_usd %}<span class="trip-price">From ${{ t.price_from_usd|floatformat:0 }}</span>{% endif %}
+      </a>
+      {% empty %}
+      <p>Day trips are being added — contact us for current options.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head cultural reveal">
+      <span class="eyebrow">Beyond the wildlife</span>
+      <h2>Culture &amp; Heritage</h2>
+      <p>Tanzania is more than parks — it's over 120 tribes, centuries-old craft traditions, and flavours found nowhere else.</p>
+    </div>
+    <div class="culture-grid reveal-stagger">
+      <div class="culture-card">
+        <span class="icon-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="5" r="2.4"/>
+            <path d="M12 7.4 L12 14 M12 10 L7 8 M12 10 L17 8 M12 14 L8 21 M12 14 L16 21"/>
+            <path d="M4 6 L4 14 M20 6 L20 14" stroke-dasharray="2 2"/>
+          </svg>
+        </span>
+        <h3>Meet the Maasai</h3>
+        <p>Visit a living boma near Ngorongoro, share stories with elders, and learn the meaning behind the beadwork and the jump dance.</p>
+      </div>
+      <div class="culture-card">
+        <span class="icon-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 C8 6 8 10 12 12 C16 10 16 6 12 3 Z"/>
+            <circle cx="9.5" cy="8" r="0.6" fill="currentColor"/>
+            <circle cx="14.5" cy="8" r="0.6" fill="currentColor"/>
+            <path d="M6 21 C6 15 9 12 12 12 C15 12 18 15 18 21"/>
+          </svg>
+        </span>
+        <h3>Tingatinga Art &amp; Crafts</h3>
+        <p>Watch painters at work in Arusha and Zanzibar studios, and take home hand-carved ebony, batik, and vivid Tingatinga canvases.</p>
+      </div>
+      <div class="culture-card">
+        <span class="icon-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 11 Q12 6 20 11"/>
+            <path d="M5 11 L6.5 19 Q12 21 17.5 19 L19 11"/>
+            <path d="M9 11 L9 4 M12 11 L12 3 M15 11 L15 4" stroke-dasharray="1.5 1.8"/>
+          </svg>
+        </span>
+        <h3>Zanzibar Spice &amp; Cuisine</h3>
+        <p>Walk a working spice farm, then sample nyama choma, ugali, and coconut fish curry the way locals actually eat them.</p>
+      </div>
+      <div class="culture-card">
+        <span class="icon-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 20 L8 10 Q8 6 12 6 Q16 6 16 10 L16 20 Z"/>
+            <path d="M8 14 L16 14 M6 20 L18 20"/>
+            <path d="M12 6 L12 3"/>
+          </svg>
+        </span>
+        <h3>Music, Drums &amp; Dance</h3>
+        <p>Evenings around the fire with taarab melodies on the coast and ngoma drumming inland — an experience, not a show.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark pattern-wash">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Traveler stories</span>
+      <h2>What Our Guests Say</h2>
+    </div>
+    <div class="testi-grid reveal-stagger">
+      {% for t in testimonials %}
+      <div class="testi-card">
+        <div class="testi-stars">{% for i in "12345" %}{% if forloop.counter <= t.rating %}★{% else %}☆{% endif %}{% endfor %}</div>
+        <p class="testi-quote">&ldquo;{{ t.quote }}&rdquo;</p>
+        <div class="testi-author">{{ t.author_name }}</div>
+        {% if t.author_country %}<div class="testi-country">{{ t.author_country }}</div>{% endif %}
+      </div>
+      {% empty %}
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">&ldquo;Reviews from happy travelers will appear here.&rdquo;</p>
+        <div class="testi-author">Safari Travels Team</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="cta-band" style="display:flex; align-items:center; gap:36px; flex-wrap:wrap; justify-content:center; text-align:left;">
+    <span class="stamp" aria-hidden="true"><strong>Tanzania</strong><span>Karibu Sana</span></span>
+    <div style="flex:1; min-width:260px; text-align:center;">
+      <h2>Ready for your Tanzania adventure?</h2>
+      <p style="margin:0 auto 28px;">Tell us your travel dates, group size, and interests — we'll build a personalized itinerary within 24 hours.</p>
+      <div class="cta-actions">
+        <a href="{% url 'tours:contact' %}" class="btn btn-gold">Request a Custom Itinerary</a>
+        <a href="https://wa.me/{{ SITE_WHATSAPP }}" target="_blank" rel="noopener" class="btn btn-outline">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

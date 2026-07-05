@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Day Trips — Safari Travels{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding-bottom:60px;">
+  <div class="sun-glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Day Trips</span>
+    <h1 style="font-size:clamp(2rem,4.5vw,3.2rem);">One free day, one big adventure</h1>
+    <p class="hero-lede">No need for a full itinerary — these excursions fit into a single day from Arusha, Moshi or Zanzibar.</p>
+  </div>
+</section>
+<div class="pattern-band" aria-hidden="true"></div>
+
+<section class="section">
+  <div class="container">
+    <div class="trip-row reveal-stagger">
+      {% for t in day_trips %}
+      <a href="{% url 'tours:contact' %}?package={{ t.title|urlencode }}" class="trip-card">
+        {% if t.get_image %}<img src="{{ t.get_image }}" alt="{{ t.title }}" loading="lazy">
+        {% else %}<img src="https://images.unsplash.com/photo-1516617442634-75371039cb3a?w=500&q=70" alt="{{ t.title }}" loading="lazy">{% endif %}
+        <div>
+          <h3>{{ t.title }}</h3>
+          <p>{{ t.summary|default:t.description|default:"A perfect day excursion from Arusha or Moshi." }}</p>
+        </div>
+        {% if t.price_from_usd %}<span class="trip-price">From ${{ t.price_from_usd|floatformat:0 }}</span>{% else %}<span class="trip-price">Ask for price</span>{% endif %}
+      </a>
+      {% empty %}
+      <p>Day trips are being added soon. <a href="{% url 'tours:contact' %}">Contact us</a> for current options.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

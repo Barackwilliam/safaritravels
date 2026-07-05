@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Contact Us — Safari Travels{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding-bottom:60px;">
+  <div class="sun-glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Contact</span>
+    <h1 style="font-size:clamp(2rem,4.5vw,3.2rem);">Let's build your <em>itinerary</em></h1>
+    <p class="hero-lede">Tell us your dates, group size, and dream destinations — we typically reply within 24 hours.</p>
+  </div>
+</section>
+<div class="pattern-band" aria-hidden="true"></div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-wrap">
+      <form method="post" novalidate class="reveal">
+        {% csrf_token %}
+        <div class="form-grid">
+          <div class="full">
+            <label class="field-label" for="{{ form.name.id_for_label }}">Full Name</label>
+            {{ form.name }}
+            {{ form.name.errors }}
+          </div>
+          <div>
+            <label class="field-label" for="{{ form.email.id_for_label }}">Email</label>
+            {{ form.email }}
+            {{ form.email.errors }}
+          </div>
+          <div>
+            <label class="field-label" for="{{ form.phone.id_for_label }}">Phone / WhatsApp</label>
+            {{ form.phone }}
+            {{ form.phone.errors }}
+          </div>
+          <div class="full">
+            <label class="field-label" for="{{ form.package_interest.id_for_label }}">Package of Interest (optional)</label>
+            {{ form.package_interest }}
+            {{ form.package_interest.errors }}
+          </div>
+          <div class="full">
+            <label class="field-label" for="{{ form.message.id_for_label }}">Your Message</label>
+            {{ form.message }}
+            {{ form.message.errors }}
+          </div>
+        </div>
+        <button type="submit" class="btn btn-sunset mt-lg">Send Message</button>
+      </form>
+
+      <div class="contact-info-card pattern-wash reveal">
+        <h3>Head Office</h3>
+        <div class="contact-info-row">
+          <span>📍</span>
+          <span>{{ SITE_LOCATION }}</span>
+        </div>
+        <div class="contact-info-row">
+          <span>📞</span>
+          <span>{{ SITE_PHONE_PRIMARY }}<br>{{ SITE_PHONE_SECONDARY }}</span>
+        </div>
+        <div class="contact-info-row">
+          <span>✉️</span>
+          <span><a href="mailto:{{ SITE_EMAIL }}">{{ SITE_EMAIL }}</a></span>
+        </div>
+        <div class="contact-info-row">
+          <span>💬</span>
+          <span><a href="https://wa.me/{{ SITE_WHATSAPP }}" target="_blank" rel="noopener">Chat on WhatsApp</a></span>
+        </div>
+        <a href="https://wa.me/{{ SITE_WHATSAPP }}" target="_blank" rel="noopener" class="btn btn-gold" style="width:100%; margin-top:20px;">Message Us Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

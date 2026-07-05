@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Destinations — Safari Travels{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding-bottom:60px;">
+  <div class="sun-glow" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Destinations</span>
+    <h1 style="font-size:clamp(2rem,4.5vw,3.2rem);">Nine faces of <em>Tanzania</em></h1>
+    <p class="hero-lede">National parks, mountains and islands — each with its own rhythm, wildlife, and story.</p>
+  </div>
+</section>
+<div class="pattern-band" aria-hidden="true"></div>
+
+<section class="section">
+  <div class="container">
+    <div class="dest-grid reveal-stagger">
+      {% for d in destinations %}
+      <a href="{{ d.get_absolute_url }}" class="dest-card">
+        {% if d.get_image %}<img src="{{ d.get_image }}" alt="{{ d.name }}" loading="lazy">
+        {% else %}<img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=70" alt="{{ d.name }}" loading="lazy">{% endif %}
+        <span class="dest-card-overlay"><span class="dest-card-title">{{ d.name }}</span></span>
+      </a>
+      {% empty %}
+        {% for name, img in default_list %}
+        <div class="dest-card">
+          <img src="{{ img }}" alt="{{ name }}" loading="lazy">
+          <span class="dest-card-overlay"><span class="dest-card-title">{{ name }}</span></span>
+        </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}
