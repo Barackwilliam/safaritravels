@@ -9,3 +9,5 @@ media/
 .DS_Store
 venv/
 env/
+templates.zip
+static.zip
