@@ -91,7 +91,7 @@ WSGI_APPLICATION = "safaritravels.wsgi.application"
 #         }
 #     }
 
-
+# DATABASE_URL=postgresql://postgres.kigodcvtsssckcsgnmpl:NyumbaChap@123@aws-0-eu-central-1.pooler.supabase.com:5432/postgres
 
 DATABASES = {
     'default': {

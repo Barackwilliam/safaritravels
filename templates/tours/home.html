@@ -4,7 +4,16 @@
 {% block content %}
 
 <section class="hero">
-  <div class="sun-glow" aria-hidden="true"></div>
+  <div class="hero-bg-slides" aria-hidden="true">
+    <div class="hero-bg-slide" style="background-image:url('{% static 'img/background.jpeg' %}')"></div>
+    <div class="hero-bg-slide" style="background-image:url('{% static 'img/2.jpeg' %}')"></div>
+    <div class="hero-bg-slide" style="background-image:url('{% static 'img/12.jpeg' %}')"></div>
+    <div class="hero-bg-slide" style="background-image:url('{% static 'img/6.jpeg' %}')"></div>
+    <div class="hero-bg-slide" style="background-image:url('{% static 'img/9.jpeg' %}')"></div>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div
+   class="sun-glow" aria-hidden="true"></div>
   <div class="hero-inner">
     <span class="hero-eyebrow">Arusha, Tanzania · Est. Local Safari Experts</span>
     <h1>Chase the <em>golden hour</em> across Tanzania's wild heart</h1>
@@ -16,7 +25,7 @@
       <a href="{% url 'tours:package_list' %}" class="btn btn-sunset">Browse Safari Packages</a>
       <a href="{% url 'tours:contact' %}" class="btn btn-outline">Plan a Custom Trip</a>
     </div>
-    <div class="hero-stats">
+    <!-- <div class="hero-stats">
       <div>
         <span class="hero-stat-num">9+</span>
         <span class="hero-stat-label">Parks &amp; Destinations</span>
@@ -29,7 +38,7 @@
         <span class="hero-stat-num">100%</span>
         <span class="hero-stat-label">Tanzania-Based Guides</span>
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="hero-birds" aria-hidden="true">
     <svg class="bird-1" viewBox="0 0 30 14" width="26" height="12"><path d="M0 8 Q7 0 15 7 Q23 0 30 8" fill="none" stroke="#F3D8A6" stroke-width="1.6" stroke-linecap="round"/></svg>
