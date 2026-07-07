@@ -74,22 +74,36 @@ WSGI_APPLICATION = "safaritravels.wsgi.application"
 # --- Database: Supabase Postgres via DATABASE_URL env var -------------------
 # In Supabase: Project Settings > Database > Connection string (URI, use the
 # "Session pooler" connection for Render). Put it in DATABASE_URL.
-_database_url = config("DATABASE_URL", default="")
-if _database_url:
-    DATABASES = {
-        "default": dj_database_url.parse(
-            _database_url,
-            conn_max_age=600,
-            ssl_require=config("DB_SSL_REQUIRE", default=True, cast=bool),
-        )
+# _database_url = config("DATABASE_URL", default="")
+# if _database_url:
+#     DATABASES = {
+#         "default": dj_database_url.parse(
+#             _database_url,
+#             conn_max_age=600,
+#             ssl_require=config("DB_SSL_REQUIRE", default=True, cast=bool),
+#         )
+#     }
+# else:
+#     DATABASES = {
+#         "default": {
+#             "ENGINE": "django.db.backends.sqlite3",
+#             "NAME": BASE_DIR / "db.sqlite3",
+#         }
+#     }
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres', 
+        'USER': 'postgres.kigodcvtsssckcsgnmpl',  
+        'PASSWORD': 'NyumbaChap@123', 
+        'HOST': 'aws-0-eu-central-1.pooler.supabase.com',  
+        'PORT': '5432',  
     }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
+}
+
 
 # --- Password validation -----------------------------------------------------
 AUTH_PASSWORD_VALIDATORS = [
