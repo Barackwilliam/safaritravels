@@ -8,7 +8,7 @@ DESTINATIONS = [
     ("Tarangire National Park", "Ancient baobabs and massive elephant herds along the Tarangire River.", "https://images.unsplash.com/photo-1509233725247-49e657c54213?w=900&q=70"),
     ("Lake Manyara National Park", "Tree-climbing lions, flamingo-lined shores, and dense groundwater forest.", "https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=900&q=70"),
     ("Mount Kilimanjaro", "Africa's rooftop — a trekker's rite of passage through five climate zones.", "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?w=900&q=70"),
-    ("Zanzibar", "Turquoise water, spice farms, and the historic alleys of Stone Town.", "https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=900&q=70"),
+    ("Zanzibar", "Turquoise water, spice farms, and the historic alleys of Stone Town.", "https://images.unsplash.com/photo-1665449417444-fe7fec4b7425?w=900&q=70"),
     ("Mikumi National Park", "Easily reached wildlife-rich savanna often compared to the Serengeti.", "https://images.unsplash.com/photo-1521651201144-634f700b36ef?w=900&q=70"),
     ("Ruaha National Park", "Tanzania's largest park — remote, rugged, and rich in predators.", "https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=900&q=70"),
     ("Nyerere National Park (Selous)", "Vast wilderness along the Rufiji River, ideal for boat safaris.", "https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=900&q=70"),
@@ -96,7 +96,7 @@ PACKAGES = [
         "summary": "White-sand beaches, Stone Town history, and spice farm tours.",
         "description": "Unwind after your safari or come straight for a relaxed island escape — Zanzibar blends beach time with rich Swahili culture and history.",
         "highlights": "Stone Town guided tour\nSpice farm visit\nBeachfront accommodation\nSunset dhow cruise option\nAirport transfers included",
-        "image": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=900&q=70",
+        "image": "https://images.unsplash.com/photo-1665449417444-fe7fec4b7425?w=900&q=70",
         "destinations": ["Zanzibar"],
         "itinerary": [
             ("Arrival & Stone Town", "Airport transfer and guided walking tour of historic Stone Town."),

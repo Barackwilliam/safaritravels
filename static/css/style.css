@@ -228,9 +228,23 @@ ul { margin: 0; padding: 0; list-style: none; }
 .pkg-card-cat { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sunset-deep); font-weight: 700; }
 .pkg-card-title { font-size: 1.3rem; margin-bottom: 2px; }
 .pkg-card-summary { color: #5b5044; font-size: 0.94rem; flex: 1; }
-.pkg-card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid rgba(34,64,58,0.1); }
+.pkg-card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid rgba(34,64,58,0.1); gap: 12px; flex-wrap: wrap; }
 .pkg-price-label { font-size: 0.72rem; text-transform: uppercase; color: var(--acacia); letter-spacing: 0.06em; }
 .pkg-price { font-family: var(--font-display); font-size: 1.4rem; color: var(--dusk-deep); font-weight: 600; }
+.pkg-card-media-link, .pkg-card-title-link { display: block; color: inherit; }
+.pkg-card-title-link:hover .pkg-card-title { color: var(--sunset-deep); }
+.pkg-card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ---------------------------- Trust badges strip ---------------------------- */
+.trust-strip { padding: 34px 0; background: var(--ivory-warm); border-top: 1px solid rgba(34,64,58,0.08); border-bottom: 1px solid rgba(34,64,58,0.08); }
+.trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.trust-item { display: flex; align-items: center; gap: 12px; justify-content: center; text-align: left; }
+.trust-icon {
+  flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: var(--dusk-deep); color: var(--gold);
+}
+.trust-icon svg { width: 22px; height: 22px; }
+.trust-text { font-weight: 600; font-size: 0.92rem; color: var(--dusk-deep); }
 
 .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 44px; }
 .filter-pill {
@@ -313,7 +327,11 @@ textarea.field-input { resize: vertical; min-height: 120px; }
 .footer-bottom {
   margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); padding: 22px 24px; text-align: center;
   font-size: 0.82rem; opacity: 0.7;
+  display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; justify-content: center;
 }
+.footer-map { margin-top: 14px; border-radius: 12px; overflow: hidden; filter: grayscale(0.15) contrast(1.05); }
+.footer-legal { display: inline-flex; gap: 8px; align-items: center; }
+.footer-legal a:hover { color: var(--gold); opacity: 1; }
 
 /* ---------------------------- WhatsApp float ----------------------------------- */
 .whatsapp-float {
@@ -475,12 +493,17 @@ textarea.field-input { resize: vertical; min-height: 120px; }
   .process-steps { grid-template-columns: repeat(2, 1fr); row-gap: 36px; }
   .process-steps::after { display: none; }
   .value-grid { grid-template-columns: repeat(2, 1fr); }
+  .trust-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 720px) {
   .culture-grid { grid-template-columns: 1fr; }
   .process-steps { grid-template-columns: 1fr; }
   .value-grid { grid-template-columns: 1fr; }
   .stamp { width: 88px; height: 88px; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .pkg-card-footer { align-items: flex-start; }
+  .pkg-card-actions { width: 100%; }
+  .pkg-card-actions .btn { flex: 1; }
 }
 
 /* ==========================================================================

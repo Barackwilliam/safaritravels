@@ -16,5 +16,13 @@ services:
         value: "True"
       - key: ALLOWED_HOSTS
         value: ".onrender.com"
+      - key: SITE_DOMAIN
+        sync: false
+      - key: GOOGLE_ANALYTICS_ID
+        sync: false
+      - key: GOOGLE_SITE_VERIFICATION
+        sync: false
+      - key: SITE_MAP_EMBED_URL
+        sync: false
       - key: PYTHON_VERSION
         value: "3.12.0"

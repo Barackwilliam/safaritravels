@@ -5,11 +5,11 @@
 
 <section class="hero">
   <div class="hero-bg-slides" aria-hidden="true">
+    <div class="hero-bg-slide" style="background-image:url('https://images.unsplash.com/photo-1516497084411-042e90c17be1?w=1920&q=75')"></div>
     <div class="hero-bg-slide" style="background-image:url('{% static 'img/background.jpeg' %}')"></div>
+    <div class="hero-bg-slide" style="background-image:url('https://images.unsplash.com/photo-1631646109206-4b5616964f84?w=1920&q=75')"></div>
     <div class="hero-bg-slide" style="background-image:url('{% static 'img/2.jpeg' %}')"></div>
-    <div class="hero-bg-slide" style="background-image:url('{% static 'img/12.jpeg' %}')"></div>
-    <div class="hero-bg-slide" style="background-image:url('{% static 'img/6.jpeg' %}')"></div>
-    <div class="hero-bg-slide" style="background-image:url('{% static 'img/9.jpeg' %}')"></div>
+    <div class="hero-bg-slide" style="background-image:url('https://images.unsplash.com/photo-1498038116800-4159eb9b2a62?w=1920&q=75')"></div>
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div
@@ -61,6 +61,37 @@
       <svg class="walker-elephant" viewBox="0 0 60 34" fill="#0D1220"><path d="M4 30 L4 20 Q4 10 14 8 Q10 4 14 2 Q18 1 20 5 Q26 3 32 6 Q40 4 44 12 Q52 12 52 20 L52 30 L47 30 L47 24 L44 30 L38 30 L38 24 L35 30 L18 30 L18 23 L14 30 L8 30 L8 22 L4 30 Z"/></svg>
       <svg class="walker-giraffe" viewBox="0 0 30 46" fill="#0D1220"><path d="M14 2 L18 2 L18 8 Q22 10 22 16 L20 34 L24 46 L20 46 L17 36 L15 46 L11 46 L13 32 L10 16 Q10 10 14 8 Z"/></svg>
       <svg class="walker-gazelle" viewBox="0 0 30 26" fill="#0D1220"><path d="M2 8 L8 6 L10 2 L11 6 L16 8 Q24 8 26 16 L26 24 L23 24 L22 18 L18 24 L15 24 L17 17 L9 17 L11 24 L7 24 L6 16 L2 12 Z"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 L20 6.5 L20 12 Q20 18 12 21 Q4 18 4 12 L4 6.5 Z"/><path d="M8.5 12 L11 14.5 L16 9"/></svg>
+        </span>
+        <span class="trust-text">Licensed Tour Operator</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7 L12 12 L15.5 14"/></svg>
+        </span>
+        <span class="trust-text">24/7 Support</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5 L8 7.5 Q8 4 12 4 Q16 4 16 7.5 L16 10.5"/><circle cx="12" cy="15" r="1.4" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="trust-text">Secure Booking</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15 L5 9 Q5.5 8 6.8 8 L14 8 L18.5 12 L21 12.5 Q21.5 12.6 21.5 13.5 L21.5 15 Z"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>
+        </span>
+        <span class="trust-text">Airport Transfers</span>
+      </div>
     </div>
   </div>
 </section>
@@ -131,25 +162,32 @@
     </div>
     <div class="pkg-grid reveal-stagger">
       {% for p in packages %}
-      <a href="{{ p.get_absolute_url }}" class="pkg-card">
-        <div class="pkg-card-img">
-          {% if p.get_image %}<img src="{{ p.get_image }}" alt="{{ p.title }}" loading="lazy">
-          {% else %}<img src="https://images.unsplash.com/photo-1547970810-dc1eac37d174?w=900&q=70" alt="{{ p.title }}" loading="lazy">{% endif %}
-          <span class="pkg-card-badge">{{ p.duration_days }} Days</span>
-        </div>
+      <div class="pkg-card">
+        <a href="{{ p.get_absolute_url }}" class="pkg-card-media-link" aria-label="View {{ p.title }} details">
+          <div class="pkg-card-img">
+            {% if p.get_image %}<img src="{{ p.get_image }}" alt="{{ p.title }}" loading="lazy">
+            {% else %}<img src="https://images.unsplash.com/photo-1547970810-dc1eac37d174?w=900&q=70" alt="{{ p.title }}" loading="lazy">{% endif %}
+            <span class="pkg-card-badge">{{ p.duration_days }} Days</span>
+          </div>
+        </a>
         <div class="pkg-card-body">
-          <span class="pkg-card-cat">{{ p.get_category_display }}</span>
-          <h3 class="pkg-card-title">{{ p.title }}</h3>
+          <a href="{{ p.get_absolute_url }}" class="pkg-card-title-link">
+            <span class="pkg-card-cat">{{ p.get_category_display }}</span>
+            <h3 class="pkg-card-title">{{ p.title }}</h3>
+          </a>
           <p class="pkg-card-summary">{{ p.summary }}</p>
           <div class="pkg-card-footer">
             <div>
               <span class="pkg-price-label">From</span>
               <div class="pkg-price">${{ p.price_from_usd|floatformat:0 }}</div>
             </div>
-            <span class="btn btn-sunset btn-small">View Details</span>
+            <div class="pkg-card-actions">
+              <a href="{{ p.get_absolute_url }}" class="btn btn-outline btn-small">Details</a>
+              <a href="{% url 'tours:contact' %}?package={{ p.title|urlencode }}" class="btn btn-sunset btn-small">Book Now</a>
+            </div>
           </div>
         </div>
-      </a>
+      </div>
       {% empty %}
       <p>Packages are being added — check back soon, or contact us directly for current offers.</p>
       {% endfor %}

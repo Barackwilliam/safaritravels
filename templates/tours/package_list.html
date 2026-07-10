@@ -23,25 +23,32 @@
 
     <div class="pkg-grid reveal-stagger">
       {% for p in packages %}
-      <a href="{{ p.get_absolute_url }}" class="pkg-card">
-        <div class="pkg-card-img">
-          {% if p.get_image %}<img src="{{ p.get_image }}" alt="{{ p.title }}" loading="lazy">
-          {% else %}<img src="https://images.unsplash.com/photo-1547970810-dc1eac37d174?w=900&q=70" alt="{{ p.title }}" loading="lazy">{% endif %}
-          <span class="pkg-card-badge">{{ p.duration_days }} Days</span>
-        </div>
+      <div class="pkg-card">
+        <a href="{{ p.get_absolute_url }}" class="pkg-card-media-link" aria-label="View {{ p.title }} details">
+          <div class="pkg-card-img">
+            {% if p.get_image %}<img src="{{ p.get_image }}" alt="{{ p.title }}" loading="lazy">
+            {% else %}<img src="https://images.unsplash.com/photo-1547970810-dc1eac37d174?w=900&q=70" alt="{{ p.title }}" loading="lazy">{% endif %}
+            <span class="pkg-card-badge">{{ p.duration_days }} Days</span>
+          </div>
+        </a>
         <div class="pkg-card-body">
-          <span class="pkg-card-cat">{{ p.get_category_display }}</span>
-          <h3 class="pkg-card-title">{{ p.title }}</h3>
+          <a href="{{ p.get_absolute_url }}" class="pkg-card-title-link">
+            <span class="pkg-card-cat">{{ p.get_category_display }}</span>
+            <h3 class="pkg-card-title">{{ p.title }}</h3>
+          </a>
           <p class="pkg-card-summary">{{ p.summary }}</p>
           <div class="pkg-card-footer">
             <div>
               <span class="pkg-price-label">From</span>
               <div class="pkg-price">${{ p.price_from_usd|floatformat:0 }}</div>
             </div>
-            <span class="btn btn-sunset btn-small">View Details</span>
+            <div class="pkg-card-actions">
+              <a href="{{ p.get_absolute_url }}" class="btn btn-outline btn-small">Details</a>
+              <a href="{% url 'tours:contact' %}?package={{ p.title|urlencode }}" class="btn btn-sunset btn-small">Book Now</a>
+            </div>
           </div>
         </div>
-      </a>
+      </div>
       {% empty %}
       <p>No packages found in this category yet. <a href="{% url 'tours:contact' %}">Contact us</a> for a custom itinerary.</p>
       {% endfor %}

@@ -56,6 +56,26 @@ def about(request):
     return render(request, "tours/about.html")
 
 
+def robots_txt(request):
+    from django.http import HttpResponse
+    from django.conf import settings
+    lines = [
+        "User-agent: *",
+        "Allow: /",
+        "Disallow: /admin/",
+        f"Sitemap: {settings.SITE_DOMAIN}/sitemap.xml",
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")
+
+
+def privacy_policy(request):
+    return render(request, "tours/privacy_policy.html")
+
+
+def terms(request):
+    return render(request, "tours/terms.html")
+
+
 def contact(request):
     initial = {}
     package_interest = request.GET.get("package")

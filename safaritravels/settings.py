@@ -6,6 +6,11 @@ SECRET_KEY or database credentials here. Create a `.env` file locally
 (see `.env.example`) and set the same variables in the Render dashboard.
 """
 
+
+
+# database: barackwilliam12@gmail.com
+# webhosted:aishateko879@gmail.com
+
 from pathlib import Path
 from decouple import config, Csv
 import dj_database_url

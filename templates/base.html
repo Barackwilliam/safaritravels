@@ -6,10 +6,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{% block title %}Safari Travels — Tanzania Safari & Adventure Tours{% endblock %}</title>
 <meta name="description" content="{% block meta_description %}Safari Travels — unforgettable Tanzania safari adventures, Kilimanjaro trekking, cultural experiences and beach holidays. Based in Arusha.{% endblock %}">
+<link rel="canonical" href="{{ SITE_DOMAIN }}{{ request_path }}">
+{% if GOOGLE_SITE_VERIFICATION %}<meta name="google-site-verification" content="{{ GOOGLE_SITE_VERIFICATION }}">{% endif %}
+
+<meta property="og:site_name" content="Safari Travels">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{% block og_title %}{% block og_title_inner %}Safari Travels — Tanzania Safari & Adventure Tours{% endblock %}{% endblock %}">
+<meta property="og:description" content="{% block og_description %}Unforgettable Tanzania safari adventures, Kilimanjaro trekking, cultural experiences and beach holidays. Based in Arusha.{% endblock %}">
+<meta property="og:url" content="{{ SITE_DOMAIN }}{{ request_path }}">
+<meta property="og:image" content="{% block og_image %}{{ SITE_DOMAIN }}{% static 'img/background.jpeg' %}{% endblock %}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% block twitter_title %}Safari Travels — Tanzania Safari & Adventure Tours{% endblock %}">
+<meta name="twitter:description" content="{% block twitter_description %}Unforgettable Tanzania safari adventures, Kilimanjaro trekking, cultural experiences and beach holidays.{% endblock %}">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Safari Travels",
+  "url": "{{ SITE_DOMAIN }}",
+  "telephone": "{{ SITE_PHONE_PRIMARY }}",
+  "email": "{{ SITE_EMAIL }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ SITE_LOCATION }}",
+    "addressCountry": "TZ"
+  },
+  "sameAs": ["{{ SITE_INSTAGRAM }}", "{{ SITE_FACEBOOK }}", "{{ SITE_THREADS }}"]
+}
+</script>
+
+{% if GOOGLE_ANALYTICS_ID %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ GOOGLE_ANALYTICS_ID }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ GOOGLE_ANALYTICS_ID }}');
+</script>
+{% endif %}
+
 {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -92,6 +133,14 @@
       <p>{{ SITE_LOCATION }}</p>
       <p>{{ SITE_PHONE_PRIMARY }}<br>{{ SITE_PHONE_SECONDARY }}</p>
       <p><a href="mailto:{{ SITE_EMAIL }}">{{ SITE_EMAIL }}</a></p>
+      <div class="footer-map">
+        <iframe
+          src="{{ SITE_MAP_EMBED_URL }}"
+          width="100%" height="140" style="border:0; border-radius:12px;"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Safari Travels office location on Google Maps"></iframe>
+      </div>
     </div>
     <div class="footer-col">
       <h4>Start Planning</h4>
@@ -101,6 +150,11 @@
   </div>
   <div class="footer-bottom">
     <span>&copy; {% now "Y" %} Safari Travels. All rights reserved.</span>
+    <span class="footer-legal">
+      <a href="{% url 'tours:privacy_policy' %}">Privacy Policy</a>
+      <span aria-hidden="true">·</span>
+      <a href="{% url 'tours:terms' %}">Terms &amp; Conditions</a>
+    </span>
   </div>
 </footer>
 
