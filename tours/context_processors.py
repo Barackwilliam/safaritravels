@@ -12,9 +12,5 @@ def site_settings(request):
         "SITE_INSTAGRAM": settings.SITE_INSTAGRAM,
         "SITE_FACEBOOK": settings.SITE_FACEBOOK,
         "SITE_THREADS": settings.SITE_THREADS,
-        # "SITE_DOMAIN": settings.SITE_DOMAIN,
-        # "SITE_MAP_EMBED_URL": settings.SITE_MAP_EMBED_URL,
-        # "GOOGLE_ANALYTICS_ID": settings.GOOGLE_ANALYTICS_ID,
-        # "GOOGLE_SITE_VERIFICATION": settings.GOOGLE_SITE_VERIFICATION,
         "request_path": request.path,
     }

@@ -3,7 +3,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#10162A">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>{% block title %}Safari Travels — Tanzania Safari & Adventure Tours{% endblock %}</title>
 <meta name="description" content="{% block meta_description %}Safari Travels — unforgettable Tanzania safari adventures, Kilimanjaro trekking, cultural experiences and beach holidays. Based in Arusha.{% endblock %}">
 <link rel="canonical" href="{{ SITE_DOMAIN }}{{ request_path }}">
@@ -82,17 +86,26 @@
     </a>
 
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
-    <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu">
+    <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu" role="button" aria-controls="site-nav" aria-haspopup="true">
       <span></span><span></span><span></span>
     </label>
+    <label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
 
-    <nav class="site-nav">
+    <nav class="site-nav" id="site-nav">
+      <div class="nav-panel-top">
+        <span class="nav-panel-emblem" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M4 34 Q14 10 24 22 Q34 10 44 34" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="12" r="4" fill="currentColor"/></svg>
+        </span>
+        <div class="nav-panel-title">Safari Travels</div>
+        <div class="nav-panel-sub">Tanzania Adventures</div>
+      </div>
       <a href="{% url 'tours:home' %}">Home</a>
       <a href="{% url 'tours:package_list' %}">Packages</a>
       <a href="{% url 'tours:destination_list' %}">Destinations</a>
       <a href="{% url 'tours:day_trip_list' %}">Day Trips</a>
       <a href="{% url 'tours:about' %}">About</a>
       <a href="{% url 'tours:contact' %}" class="nav-cta">Plan My Safari</a>
+      <div class="nav-panel-strip" aria-hidden="true"></div>
     </nav>
   </div>
 </header>
@@ -135,8 +148,8 @@
       <p><a href="mailto:{{ SITE_EMAIL }}">{{ SITE_EMAIL }}</a></p>
       <div class="footer-map">
         <iframe
+          class="footer-map-frame"
           src="{{ SITE_MAP_EMBED_URL }}"
-          width="100%" height="140" style="border:0; border-radius:12px;"
           allowfullscreen loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           title="Safari Travels office location on Google Maps"></iframe>
